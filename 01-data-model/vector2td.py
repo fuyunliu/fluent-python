@@ -8,13 +8,14 @@ class Vector:
         self.y = y
 
     def __repr__(self):
-        return 'Vector(%r, %r)' % (self.x, self.y)
+        return f'Vector({self.x}, {self.y})'
 
     def __abs__(self):
         return hypot(self.x, self.y)
 
     def __bool__(self):
-        return bool(abs(self))
+        # return bool(abs(self))
+        return bool(self.x or self.y)  # 更高效
 
     def __add__(self, other):
         x = self.x + other.x
